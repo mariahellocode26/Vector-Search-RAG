@@ -79,3 +79,52 @@ class RAGBase:
         prompt = self.build_prompt(query, search_results)
         answer = self.llm(prompt)
         return answer
+
+
+
+
+
+from gem_client import call_gemini, init
+
+# Initialize the .env file auto-detection on load
+init()
+
+
+
+class RAGVectorGemini(RAGBase):
+
+    def __init__(self, index, embedder, instructions=INSTRUCTIONS, prompt_template=PROMPT_TEMPLATE, course='llm-zoomcamp', model='gemini-2.5-flash'):
+        # 1. Initialize the core base parameters
+        super().__init__(
+            index=index,
+            instructions=instructions,
+            prompt_template=prompt_template,
+            course=course,
+            model=model,
+            llm_client=None # Not used since we call gem_client directly
+        )
+        # 2. Store the vector embedder
+        self.embedder = embedder
+
+    def search(self, query, num_results=5):
+        """Overrides keyword search with Vector search functionality."""
+        query_vector = self.embedder.encode(query)
+        filter_dict = {"course": self.course}
+
+        return self.index.search(
+            query_vector,
+            num_results=num_results,
+            filter_dict=filter_dict
+        )
+
+    def llm(self, prompt):
+        """Overrides OpenAI messaging format with production-grade Gemini client."""
+        # Prepend instructions to context prompt strings
+        full_prompt = f"{self.instructions}\n\n{prompt}"
+
+        # Route directly through your token tracking wrapper
+        result = call_gemini(
+            prompt=full_prompt,
+            model=self.model
+        )
+        return result.content

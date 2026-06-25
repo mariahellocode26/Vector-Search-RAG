@@ -1,0 +1,60 @@
+{
+  "daily": {
+    "2026-06-25": {
+      "requests": 6,
+      "prompt_tokens": 1380,
+      "completion_tokens": 186,
+      "total_tokens": 1566
+    }
+  },
+  "entries": [
+    {
+      "timestamp_pt": "2026-06-25T08:15:30.292384-07:00",
+      "model": "gemini-2.5-flash",
+      "prompt_tokens": 16,
+      "completion_tokens": 18,
+      "total_tokens": 34,
+      "latency_ms": 3055.3
+    },
+    {
+      "timestamp_pt": "2026-06-25T08:16:46.951775-07:00",
+      "model": "gemini-2.5-flash",
+      "prompt_tokens": 16,
+      "completion_tokens": 16,
+      "total_tokens": 32,
+      "latency_ms": 3302.4
+    },
+    {
+      "timestamp_pt": "2026-06-25T08:24:53.719906-07:00",
+      "model": "gemini-2.5-flash",
+      "prompt_tokens": 16,
+      "completion_tokens": 52,
+      "total_tokens": 68,
+      "latency_ms": 3195.4
+    },
+    {
+      "timestamp_pt": "2026-06-25T08:33:36.450551-07:00",
+      "model": "gemini-2.5-flash",
+      "prompt_tokens": 428,
+      "completion_tokens": 40,
+      "total_tokens": 468,
+      "latency_ms": 2016.3
+    },
+    {
+      "timestamp_pt": "2026-06-25T08:35:37.086706-07:00",
+      "model": "gemini-2.5-flash",
+      "prompt_tokens": 474,
+      "completion_tokens": 30,
+      "total_tokens": 504,
+      "latency_ms": 969.1
+    },
+    {
+      "timestamp_pt": "2026-06-25T08:40:16.841917-07:00",
+      "model": "gemini-2.5-flash",
+      "prompt_tokens": 430,
+      "completion_tokens": 30,
+      "total_tokens": 460,
+      "latency_ms": 2208.0
+    }
+  ]
+}
